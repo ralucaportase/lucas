@@ -1,0 +1,11 @@
+env/
+node_modules/
+__pycache__
+*.pyc
+.pipcache
+.benchmarks/
+.pytest_cache
+.mypy_cache
+.DS_Store
+.vscode/
+.idea/
