@@ -1,6 +1,6 @@
 from scrapy.spiders import CrawlSpider, Rule
 
-from ..items import LinkItem
+from crawler.items import LinkItem
 
 
 class LucasCrawlSpider(CrawlSpider):
