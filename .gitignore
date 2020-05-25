@@ -23,3 +23,8 @@ __pycache__
 .idea/dataSources*
 .idea/dataSources/
 .idea/shelf/
+
+*.db
+*.sqlite3
+
+backend/crawler/logs
