@@ -1,11 +1,23 @@
 // @flow
 
-import { startCrawl, FetchReducer } from 'lucas/api';
+import { startCrawlTask, FetchReducer, getCrawlResults } from 'lucas/api';
+import { combineReducers } from 'redux';
 
-const fetchReducer = new FetchReducer('crawl', (params) => startCrawl(params.url));
+const crawlTaskFetchReducer = new FetchReducer('crawlTask', startCrawlTask);
 
-const crawl = (url: string) => fetchReducer.fetch()({ url });
+const crawl = (url: ?string) => crawlTaskFetchReducer.fetch()({ url });
 
-export { crawl };
+const crawlResultsFetchReducer = new FetchReducer('crawl', getCrawlResults);
 
-export default fetchReducer.reducer();
+const getResults = ({ taskID, uniqueID }: { taskID: ?string, uniqueID: ?string }) =>
+    crawlResultsFetchReducer.fetch()({
+        taskID,
+        uniqueID,
+    });
+
+export { crawl, getResults };
+
+export default combineReducers({
+    task: crawlTaskFetchReducer.reducer(),
+    results: crawlResultsFetchReducer.reducer(),
+});

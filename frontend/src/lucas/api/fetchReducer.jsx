@@ -4,7 +4,6 @@ type FetchState = {
     data: any,
     loading: boolean,
     loaded: boolean,
-    params: any,
     error: ?{ data: string, status: number },
 };
 
@@ -15,15 +14,14 @@ type FetchOptions = {
 type FetchMethod = (params: any) => Promise<any>;
 
 const initialState = (): FetchState => ({
-    data: undefined,
+    data: null,
     loading: false,
     loaded: false,
-    params: {},
-    error: undefined,
+    error: null,
 });
 
 const defaultOptions = (): FetchOptions => ({
-    successStatusCodes: [202],
+    successStatusCodes: [200],
 });
 
 class FetchError extends Error {
@@ -73,6 +71,7 @@ class FetchReducer {
                         data: action.payload,
                         loading: false,
                         loaded: true,
+                        error: null,
                     };
                 case this.actions.error:
                     return {
@@ -105,6 +104,7 @@ class FetchReducer {
                         type: this.actions.done,
                         payload: data,
                     });
+                    return { data, status };
                 })
                 .catch((error) => {
                     dispatch({

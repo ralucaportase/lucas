@@ -26,8 +26,31 @@ const post = (url: string, body: any): Promise<*> => {
     }).then(extractResponse);
 };
 
-const startCrawl = (crawlUrl: string) => {
-    return post('/api/crawl/', { url: crawlUrl });
+const buildQueryParams = (params: any): string => {
+    if (!params) {
+        return '';
+    }
+    return (
+        '?' +
+        Object.entries(params)
+            .map(([key, value]) => (typeof value === 'string' ? `${key}=${value}` : ''))
+            .join('&')
+    );
 };
 
-export { startCrawl };
+const get = (url: string, params: any): Promise<*> => {
+    return fetch(`${url}${buildQueryParams(params)}`, {
+        method: 'GET',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }).then(extractResponse);
+};
+
+const startCrawlTask = ({ url }: { url: ?string }) => post('/api/crawl/', { url });
+
+const getCrawlResults = ({ taskID, uniqueID }: { taskID: ?string, uniqueID: ?string }) =>
+    get('/api/crawl/', { taskID, uniqueID });
+
+export { startCrawlTask, getCrawlResults };

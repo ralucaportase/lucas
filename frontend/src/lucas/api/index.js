@@ -1,6 +1,6 @@
 // @flow
 
 import FetchReducer from './fetchReducer';
-import { startCrawl } from './api';
+import { startCrawlTask, getCrawlResults } from './api';
 
-export { FetchReducer, startCrawl };
+export { FetchReducer, startCrawlTask, getCrawlResults };
