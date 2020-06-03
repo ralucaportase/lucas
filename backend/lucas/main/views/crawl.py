@@ -33,10 +33,10 @@ class CrawlView(views.APIView):
         url = request.data.get("url", None)
 
         if not url:
-            return Response(data=dict(error="Missing  url"), status=400)
+            return Response(data="Missing  url", status=400)
 
         if not is_valid_url(url):
-            return Response(data=dict(error="Invalid  url"), status=400)
+            return Response(data="Invalid  url", status=400)
 
         scrapyd = get_scrapyd_api()
         domain = urlparse(url).netloc  # parse the url and extract the domain
@@ -45,17 +45,19 @@ class CrawlView(views.APIView):
             unique_id=unique_id,
             USER_AGENT="Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
         )
-        task_id = scrapyd.schedule("default", "lucas_crawl_spider", settings=settings, url=url, domain=domain)
+        task_id = scrapyd.schedule(
+            "default", "lucas_crawl_spider", settings=settings, url=url, domain=domain
+        )
 
-        return Response(dict(task_id=task_id, unique_id=unique_id), status=200)
+        return Response(dict(taskID=task_id, uniqueID=unique_id), status=200)
 
     @classmethod
     def get(cls, request: Request):
-        task_id = request.GET.get("task_id", None)
-        unique_id = request.GET.get("unique_id", None)
+        task_id = request.GET.get("taskID", None)
+        unique_id = request.GET.get("uniqueID", None)
 
         if not task_id or not unique_id:
-            return Response(data=dict(error="Missing  args"), status=400)
+            return Response(data="Missing  args", status=400)
 
         scrapyd = get_scrapyd_api()
         status = scrapyd.job_status("default", task_id)
@@ -63,7 +65,9 @@ class CrawlView(views.APIView):
             session = CrawlSession.objects.filter(unique_id=unique_id).first()
 
             if not session:
-                return Response(dict(data=[], status=400))
-            return Response(dict(data=json.loads(session.data), status=200))
+                return Response(dict(crawlResults=[], status=status), status=400)
+            return Response(
+                dict(crawlResults=json.loads(session.data), status=status), status=200
+            )
 
         return Response(data=dict(status=status))

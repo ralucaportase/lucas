@@ -18,4 +18,4 @@ class LucasCrawlSpider(CrawlSpider):
         super(LucasCrawlSpider, self).__init__(*args, **kwargs)
 
     def parse_item(self, response):
-        return LinkItem(url=response.url)
+        return LinkItem(address=response.url)
