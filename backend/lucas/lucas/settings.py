@@ -25,8 +25,7 @@ SECRET_KEY = "^+%%ad*lda@xz@$fqcbt77p+@7_8%!in3lg8#=_hx9ssnus1cc"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["lucas-the-cute-spider.herokuapp.com", "127.0.0.1"]
 
 # Application definition
 
@@ -43,6 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -123,3 +123,5 @@ SCRAPPYD_URL = "http://localhost:6800"
 STATICFILES_DIRS = [
     os.path.join(os.path.dirname(os.path.abspath(".")), "..", "frontend/build/static")
 ]
+
+STATICFILES_STORAGE = "whitenoise.django.GzipManifestStaticFilesStorage"
