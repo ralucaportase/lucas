@@ -9,4 +9,4 @@ class LucasSitemapSpider(SitemapSpider):
     sitemap_follow = ["/categories"]
 
     def parse(self, response):
-        return LinkItem(url=response.url)
+        return LinkItem(address=response.url)
