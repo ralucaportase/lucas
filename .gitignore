@@ -28,3 +28,4 @@ __pycache__
 *.sqlite3
 
 backend/crawler/logs
+backend/lucas/static/

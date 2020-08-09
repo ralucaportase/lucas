@@ -1,7 +1,5 @@
 from scrapy.spiders import SitemapSpider
 
-from crawler.items import LinkItem
-
 
 class LucasSitemapSpider(SitemapSpider):
     name = "lucas_sitemap_spider"
@@ -9,4 +7,4 @@ class LucasSitemapSpider(SitemapSpider):
     sitemap_follow = ["/categories"]
 
     def parse(self, response):
-        return LinkItem(address=response.url)
+        return dict(address=response.url)

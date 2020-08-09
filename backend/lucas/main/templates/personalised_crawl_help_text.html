@@ -1,0 +1,37 @@
+<h3>Tutorial :D</h3>
+<pre>
+    Extract data is used to extract data from pages with the help of xpaths
+    Extract data is a list of objects!
+    Every object needs to have:
+    - The "type": "object"|"objects"
+    - for objects you also need to add a selector which is used to select the
+    objects and iterate over them
+    - Data field which will be an object and can contain the values:
+    - "key": "xpath" will set the key to the returned object with the value returned by xpath
+    - "key": another object if we want to get lists as value, the object must contain
+    - "type": "list" and a selector with the xpath to select the list values
+    Example:
+    [
+        {
+            "data": {
+                "tags": {
+                    "type": "list",
+                        "selector": "div[@class='tags']/a[@class='tag']/text()"
+                    },
+                "text": "span[@class='text']/text()",
+                "author": "span/small[@class='author']/text()"
+            },
+            "type": "objects",
+            "selector": "//div[@class='quote']"
+        },
+        {
+            "data": {
+                "topTags": {
+                    "type": "list",
+                    "selector": "//div[contains(@class,'tags-box')]/span[@class='tag-item']/a[@class='tag']/text()"
+                    }
+            },
+            "type": "object"
+        }
+    ]
+</pre>

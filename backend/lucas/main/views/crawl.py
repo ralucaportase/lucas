@@ -63,11 +63,8 @@ class CrawlView(views.APIView):
         status = scrapyd.job_status("default", task_id)
         if status == "finished":
             session = CrawlSession.objects.filter(unique_id=unique_id).first()
-
             if not session:
                 return Response(dict(crawlResults=[], status=status), status=400)
-            return Response(
-                dict(crawlResults=json.loads(session.data), status=status), status=200
-            )
+            return Response(dict(crawlResults=session.data, status=status), status=200)
 
         return Response(data=dict(status=status))
