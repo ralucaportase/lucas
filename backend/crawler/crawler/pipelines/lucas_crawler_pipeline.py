@@ -11,7 +11,7 @@ class LucasCrawlerPipeline:
 
     @classmethod
     def from_crawler(cls, crawler):
-        return cls(unique_id=crawler.settings.get("unique_id", "12112"),)
+        return cls(unique_id=crawler.settings.get("unique_id"))
 
     def close_spider(self, spider):
         crawl_session_data = list(
