@@ -5,7 +5,7 @@ from main.models import PersonalisedCrawl
 
 class LucasPersonalisedCrawlSpider(Spider):
     name = "lucas_personalised_crawl_spider"
-    handle_httpstatus_list = [403, 404]
+    handle_httpstatus_list = [403, 404, 500]
 
     def __init__(self, *args, **kwargs):
         personalised_crawl_id = kwargs.get("personalised_crawl_id")
