@@ -10,14 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-import os
 import environ
 
 root = environ.Path(__file__) - 3
 env = environ.Env(DEBUG=(bool, False),)  # set default values and casting
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = root
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -26,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = "^+%%ad*lda@xz@$fqcbt77p+@7_8%!in3lg8#=_hx9ssnus1cc"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DEBUG", True)
 
-ALLOWED_HOSTS = ["lucas-the-cute-spider.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["lucas-the-cute-spider.herokuapp.com", "127.0.0.1", "localhost"]
 
 # Application definition
 
@@ -40,6 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "django_json_widget",
+    "django_better_admin_arrayfield",
     "main",
 ]
 
@@ -59,9 +60,7 @@ ROOT_URLCONF = "lucas.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [
-            os.path.join(os.path.dirname(os.path.abspath(".")), "..", "frontend/build")
-        ],
+        "DIRS": [root("../frontend/build"), root("lucas/main/templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -100,7 +99,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Bucharest"
 
 USE_I18N = True
 
@@ -115,8 +114,8 @@ STATIC_URL = "/static/"
 
 SCRAPPYD_URL = "http://localhost:6800"
 
-STATICFILES_DIRS = [
-    os.path.join(os.path.dirname(os.path.abspath(".")), "..", "frontend/build/static")
-]
+STATICFILES_DIRS = [root("../frontend/build/static")]
 
-STATICFILES_STORAGE = "whitenoise.django.GzipManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+STATIC_ROOT = root("lucas/static")

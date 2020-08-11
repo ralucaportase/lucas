@@ -1,5 +1,7 @@
 // @flow
 
+import cookie from 'cookie';
+
 const extractResponse = (response) => {
     if (!response) {
         return { data: null, status: 500 };
@@ -15,11 +17,16 @@ const extractResponse = (response) => {
     });
 };
 
+const getCSRFToken = () => {
+    return cookie.parse(document.cookie).csrftoken;
+};
+
 const post = (url: string, body: any): Promise<*> => {
     return fetch(url, {
         method: 'POST',
         credentials: 'same-origin',
         headers: {
+            'X-CSRFToken': getCSRFToken(),
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(body),
@@ -43,6 +50,7 @@ const get = (url: string, params: any): Promise<*> => {
         method: 'GET',
         credentials: 'same-origin',
         headers: {
+            'X-CSRFToken': getCSRFToken(),
             'Content-Type': 'application/json',
         },
     }).then(extractResponse);

@@ -1,7 +1,5 @@
 from scrapy.spiders import CrawlSpider, Rule
 
-from crawler.items import LinkItem
-
 
 class LucasCrawlSpider(CrawlSpider):
     name = "lucas_crawl_spider"
@@ -18,4 +16,4 @@ class LucasCrawlSpider(CrawlSpider):
         super(LucasCrawlSpider, self).__init__(*args, **kwargs)
 
     def parse_item(self, response):
-        return LinkItem(address=response.url)
+        return dict(address=response.url)
