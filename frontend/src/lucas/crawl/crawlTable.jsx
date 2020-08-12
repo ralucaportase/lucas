@@ -35,7 +35,7 @@ const CrawlTable = () => {
                 <TableHead>
                     <TableRow>
                         <TableCell>Address</TableCell>
-                        <TableCell align="left">Only status 200 for now :(</TableCell>
+                        <TableCell align="left">Status</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
