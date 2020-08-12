@@ -9,9 +9,7 @@ class LucasPersonalisedCrawlSpider(Spider):
 
     def __init__(self, *args, **kwargs):
         personalised_crawl_id = kwargs.get("personalised_crawl_id")
-        self.personalised_crawl = PersonalisedCrawl.objects.get(
-            pk=personalised_crawl_id
-        )
+        self.personalised_crawl = PersonalisedCrawl.objects.get(pk=personalised_crawl_id)
         self.start_urls = self.personalised_crawl.start_urls
         self.extract_data = self.personalised_crawl.extract_data
 
@@ -34,6 +32,4 @@ class LucasPersonalisedCrawlSpider(Spider):
                 yield self.extract_data_from_selector(response, rule.get("data"))
             elif rule.get("type") == "objects":
                 for data_selector in response.xpath(rule.get("selector")):
-                    yield self.extract_data_from_selector(
-                        data_selector, rule.get("data")
-                    )
+                    yield self.extract_data_from_selector(data_selector, rule.get("data"))

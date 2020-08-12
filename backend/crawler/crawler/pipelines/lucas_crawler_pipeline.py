@@ -14,16 +14,12 @@ class LucasCrawlerPipeline:
         return cls(unique_id=crawler.settings.get("unique_id"))
 
     def close_spider(self, spider):
-        crawl_session_data = list(
-            self.crawl_session.items.values_list("data", flat=True)
-        )
+        crawl_session_data = list(self.crawl_session.items.values_list("data", flat=True))
         self.crawl_session.data = crawl_session_data
         self.crawl_session.finished_at = timezone.now()
         self.crawl_session.save()
 
     def process_item(self, item, spider):
-        crawl_session_item = CrawlSessionItem(
-            crawl_session=self.crawl_session, data=item
-        )
+        crawl_session_item = CrawlSessionItem(crawl_session=self.crawl_session, data=item)
         crawl_session_item.save()
         return item
