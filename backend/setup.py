@@ -49,8 +49,8 @@ def create_command(text: str, commands: List[List[str]]):
 setup(
     name='lucas',
     version='1.0.0',
-    author='Cristi Ingineru, Mihai Toader, Raluca Portase',
-    author_email='',
+    author='Cristi Ingineru, Mihai Toader, Raluca Portase, Teodor Voicencu',
+    author_email='some@mail.soon',
     description='The mono-repo filled with spider cuteness.',
     license='Proprietary',
     packages=[],
