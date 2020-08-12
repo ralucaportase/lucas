@@ -99,6 +99,6 @@ Scrapyd web console should be available under `/scrapyd/` route.
 
 
 ### Code formatting
-Use `black .` in the `backend` dir to format the python code.
+Use `python setup.py format` in the `backend` dir to format the python code.
 
 Use `yarn format` in `frontend` for js code.
