@@ -26,6 +26,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write --config ./prettier.config.json '**/*(*.js|*.jsx|*.css)' --loglevel=warn",
+    "verifyFormat": "prettier --check --config ./prettier.config.json '**/*(*.js|*.jsx|*.css)' --loglevel=warn",
     "flow": "flow",
     "fix": "yarn format && yarn flow",
     "postinstall": "yarn build"
