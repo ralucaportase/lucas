@@ -1,3 +1,6 @@
+![frontend](https://github.com/ralucaportase/lucasworkflows/frontend/badge.svg)
+![backend](https://github.com/ralucaportase/lucasworkflows/backend/badge.svg)
+
 ## Lucas one cute web crawler
 
 ![Lucas](https://i.insider.com/5b1aae9d1ae66220008b4e20?width=1200&format=jpeg)
