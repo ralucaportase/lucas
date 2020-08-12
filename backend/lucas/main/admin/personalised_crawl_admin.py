@@ -28,9 +28,7 @@ def validate_urls(urls):
 class PersonalisedCrawlAdminForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(PersonalisedCrawlAdminForm, self).__init__(*args, **kwargs)
-        self.fields["extract_data"].help_text = render_to_string(
-            "personalised_crawl_help_text.html"
-        )
+        self.fields["extract_data"].help_text = render_to_string("personalised_crawl_help_text.html")
 
     def clean(self):
         cleaned_data = super().clean()

@@ -5,9 +5,7 @@ import django
 # DJANGO INTEGRATION
 
 DJANGO_PROJECT_NAME = "lucas"
-sys.path.append(
-    os.path.join(os.path.dirname(os.path.abspath(".")), DJANGO_PROJECT_NAME)
-)
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(".")), DJANGO_PROJECT_NAME))
 os.environ["DJANGO_SETTINGS_MODULE"] = "lucas.settings"
 
 django.setup()

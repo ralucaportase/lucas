@@ -45,9 +45,7 @@ class CrawlView(views.APIView):
             unique_id=unique_id,
             USER_AGENT="Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
         )
-        task_id = scrapyd.schedule(
-            "default", "lucas_crawl_spider", settings=settings, url=url, domain=domain
-        )
+        task_id = scrapyd.schedule("default", "lucas_crawl_spider", settings=settings, url=url, domain=domain)
 
         return Response(dict(taskID=task_id, uniqueID=unique_id), status=200)
 

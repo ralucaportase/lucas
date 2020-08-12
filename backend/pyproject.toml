@@ -1,0 +1,23 @@
+[tool.black]
+line-length = 110
+target-version = ['py37']
+include = '\.pyi?$'
+exclude = '''
+/( # Default config
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.venv
+  | build
+  | dist
+  # Our config
+  | node_modules
+  | migrations
+  | env
+  | .env
+  | venv
+  | .venv
+  | .pytest_cache
+  | .pipcache
+)/
+'''
