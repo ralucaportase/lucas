@@ -2,20 +2,10 @@
 
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { getResults } from './state';
-
-const useStyles = makeStyles((theme) => ({
-    backdrop: {
-        zIndex: theme.zIndex.drawer + 1,
-        color: '#fff',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-evenly',
-    },
-}));
+import styles from './styles/loadCrawlResults.scss';
 
 // This component will start requesting crawl results right after the
 // crawl task has started. This should be replaced with web sockets.
@@ -33,8 +23,6 @@ const LoadCrawlResults = () => {
             (crawlResults.data && crawlResults.data.status === 'finished') || !!crawlResults.error,
         [crawlResults],
     );
-
-    const classes = useStyles();
 
     React.useEffect(() => {
         if (crawlTask.loaded) {
@@ -61,7 +49,7 @@ const LoadCrawlResults = () => {
     }, [isCrawlFinished]);
 
     return (
-        <Backdrop className={classes.backdrop} open={crawlResultsLoading}>
+        <Backdrop className={styles.backdrop} open={crawlResultsLoading}>
             <CircularProgress color="inherit" />
             For now you can start only one crawl session. Lucas sorry :(
             <img
