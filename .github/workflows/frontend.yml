@@ -26,5 +26,7 @@ jobs:
       run: yarn --frozen-lockfile
     - name: Verify code formating
       run: yarn format:verify
+    - name: Verify code linting
+      run: yarn lint
     - name: Flow
       run: yarn flow
