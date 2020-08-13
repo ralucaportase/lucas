@@ -1,5 +1,7 @@
 // @flow
 
+/* eslint-disable  max-classes-per-file */
+
 type FetchState = {
     data: any,
     loading: boolean,
@@ -26,6 +28,7 @@ const defaultOptions = (): FetchOptions => ({
 
 class FetchError extends Error {
     data: string;
+
     status: number;
 
     constructor(message: string, data: string, status: number) {
@@ -37,8 +40,11 @@ class FetchError extends Error {
 
 class FetchReducer {
     name: string;
+
     fetcher: FetchMethod;
+
     actions: { [string]: string };
+
     options: FetchOptions;
 
     constructor(name: string, fetcher: FetchMethod, options: FetchOptions = {}) {

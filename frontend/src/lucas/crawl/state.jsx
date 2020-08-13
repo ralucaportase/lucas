@@ -1,7 +1,8 @@
 // @flow
 
-import { startCrawlTask, FetchReducer, getCrawlResults } from 'lucas/api';
 import { combineReducers } from 'redux';
+
+import { startCrawlTask, FetchReducer, getCrawlResults } from 'lucas/api';
 
 const crawlTaskFetchReducer = new FetchReducer('crawlTask', startCrawlTask);
 

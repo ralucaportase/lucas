@@ -11,7 +11,9 @@ const extractResponse = (response) => {
         let data = text;
         try {
             data = text.length > 0 ? JSON.parse(text) : text;
-        } catch (e) {}
+        } catch (e) {
+            console.error("Getting the response failed!");
+        }
 
         return { data, status: response.status };
     });
@@ -38,10 +40,10 @@ const buildQueryParams = (params: any): string => {
         return '';
     }
     return (
-        '?' +
+        `?${ 
         Object.entries(params)
             .map(([key, value]) => (typeof value === 'string' ? `${key}=${value}` : ''))
-            .join('&')
+            .join('&')}`
     );
 };
 
