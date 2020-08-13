@@ -55,8 +55,8 @@ setup(
     license='Proprietary',
     packages=[],
     cmdclass=dict(
-        dev=pip_install_requirements('./requirements/development.txt'),
-        prod=pip_install_requirements('./requirements/production.txt'),
+        local=pip_install_requirements('./requirements/development.txt'),
+        develop=pip_install_requirements('./requirements/production.txt'),
         format=create_command('Auto-formats code', [['black', '-S', '--config', './pyproject.toml', '.']]),
         verify_format=create_command(
             'Verifies that code is properly formatted',
