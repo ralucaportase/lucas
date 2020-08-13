@@ -21,7 +21,7 @@ const Crawl = () => {
                 <Paper className={styles.paper}>
                     <Grid container spacing={2}>
                         <Grid item xs={10}>
-                            <LucasInput value={url} onChange={(value) => setUrl(value)} label={'URL'} />
+                            <LucasInput value={url} onChange={setUrl} label={'URL'} />
                         </Grid>
                         <Grid item xs={2}>
                             <CrawlButton className={styles.button} url={url} />

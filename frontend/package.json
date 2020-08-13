@@ -31,7 +31,7 @@
     "format": "prettier --write --config ./prettier.config.json '**/*(*.js|*.jsx|*.css)' --loglevel=warn",
     "format:verify": "prettier -l --config ./prettier.config.json '**/*(*.js|*.jsx|*.css|*.cssm)'",
     "flow": "flow",
-    "fix": "yarn format && yarn flow",
+    "fix": "yarn format && yarn lint:fix && yarn flow",
     "postinstall": "yarn build"
   },
   "eslintConfig": {
