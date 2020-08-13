@@ -8,7 +8,7 @@
     "useTabs": false,
     "overrides": [
         {
-            "files": ["*.css"],
+            "files": ["*.css", "*.scss"],
             "options": {
                 "printWidth": 80,
                 "parser": "css",
