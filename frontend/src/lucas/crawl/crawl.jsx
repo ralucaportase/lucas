@@ -1,6 +1,9 @@
+// @flow
+
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+
 import LucasInput from './lucasInput';
 import CrawlButton from './crawlButton';
 import CrawlTable from './crawlTable';
@@ -18,7 +21,7 @@ const Crawl = () => {
                 <Paper className={styles.paper}>
                     <Grid container spacing={2}>
                         <Grid item xs={10}>
-                            <LucasInput value={url} onChange={(url) => setUrl(url)} label={'URL'} />
+                            <LucasInput value={url} onChange={setUrl} label={'URL'} />
                         </Grid>
                         <Grid item xs={2}>
                             <CrawlButton className={styles.button} url={url} />

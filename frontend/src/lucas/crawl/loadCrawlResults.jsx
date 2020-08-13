@@ -4,6 +4,7 @@ import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
+
 import { getResults } from './state';
 import styles from './styles/loadCrawlResults.scss';
 

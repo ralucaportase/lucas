@@ -5,7 +5,7 @@ import { TextField } from '@material-ui/core';
 
 type Props = {
     value: string,
-    onChange: (value: string) => null,
+    onChange: (value: string) => void,
     label: string,
 };
 

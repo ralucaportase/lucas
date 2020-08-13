@@ -26,10 +26,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "lint": "eslint -c ./.eslintrc.json --ext .jsx --ext .js --color .",
+    "lint:fix": "yarn lint --fix",
     "format": "prettier --write --config ./prettier.config.json '**/*(*.js|*.jsx|*.css)' --loglevel=warn",
     "format:verify": "prettier -l --config ./prettier.config.json '**/*(*.js|*.jsx|*.css|*.cssm)'",
     "flow": "flow",
-    "fix": "yarn format && yarn flow",
+    "fix": "yarn format && yarn lint:fix && yarn flow",
     "postinstall": "yarn build"
   },
   "eslintConfig": {
@@ -48,6 +50,16 @@
     ]
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "eslint-plugin-redux": "^0.1.0",
     "flow-bin": "^0.125.1",
     "prettier": "2.0.5"
   },
