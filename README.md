@@ -1,5 +1,5 @@
-![frontend](https://github.com/ralucaportase/lucasworkflows/frontend/badge.svg)
-![backend](https://github.com/ralucaportase/lucasworkflows/backend/badge.svg)
+![frontend](https://github.com/ralucaportase/lucas/workflows/frontend/badge.svg)
+![backend](https://github.com/ralucaportase/lucas/workflows/backend/badge.svg)
 
 ## Lucas one cute web crawler
 
