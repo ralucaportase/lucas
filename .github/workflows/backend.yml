@@ -25,7 +25,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest
         pip install black
-        python setup.py install prod
+        python setup.py install develop
     - name: Verify code formating
       run: |
         python setup.py verify_format
