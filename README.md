@@ -20,7 +20,7 @@
     ```
 4. Install requirements:
     ```
-    λ pip install -r requirements.txt
+    λ pip setup.py local
     ```
     If your terminal gets filled with red text, don't freak out, it's because of psycopg2 run this commands, and try again 
     ```
