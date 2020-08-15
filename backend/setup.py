@@ -69,5 +69,6 @@ setup(
             'Verifies that code is properly formatted',
             [['black', '-S', '--check', '--config', './pyproject.toml', '.']],
         ),
+        lint=create_command('Lints the code', [['flake8', '.']]),
     ),
 )

@@ -1,7 +1,4 @@
-import os.path
-
 from typing import List
-from collections import OrderedDict
 
 
 def read_requirements(filename: str):
@@ -13,8 +10,6 @@ def read_requirements(filename: str):
     usually resolves relative to the current directory instead of
     relative to the requirements file in which it was declared.
     """
-
-    directory = os.path.dirname(os.path.abspath(filename))
 
     with open(filename, 'r') as fp:
         entries = fp.readlines()

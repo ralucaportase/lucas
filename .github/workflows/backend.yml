@@ -25,10 +25,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest
         pip install black
+        pip install flake8
         python setup.py install develop
     - name: Verify code formating
-      run: |
-        python setup.py verify_format
+      run: python setup.py verify_format
+    - name: Verify linting
+      run: python setup.py lint
     - name: Test with pytest
-      run: |
-        pytest
+      run: pytest
