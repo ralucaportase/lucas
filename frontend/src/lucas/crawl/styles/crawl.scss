@@ -1,10 +1,11 @@
+@import 'lucas/styles/dimensions';
 
 root {
     flex-grow: 1,
 }
 
 paper{
-    padding: 2rem;
+    padding: $spacingDefault;
     text-align: center;
     color: grey;
 }
