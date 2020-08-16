@@ -1,0 +1,15 @@
+@import './colors.scss';
+
+// Spacing values
+$spacingSuperSmall: 0.2rem;
+$spacingExtraSmall: 0.4rem;
+$spacingSmall: 0.8rem;
+$spacingDefault: 1.6rem;
+$spacingLarge: 3.2rem;
+$spacingExtraLarge: 6.4rem;
+$spacingSuperLarge: 12.8rem;
+
+// Border
+$borderRadius: 2rem;
+$borderHeight: 0.1rem;
+$border: $borderHeight solid $borderColor;

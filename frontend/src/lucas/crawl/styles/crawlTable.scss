@@ -1,7 +1,9 @@
+@import 'lucas/styles/dimensions';
+
 container {
-    margin-top: 20;
+    margin-top: $spacingLarge;
 }
 
 table {
-    min-width: 650;
+    min-width: 650px;
 }
