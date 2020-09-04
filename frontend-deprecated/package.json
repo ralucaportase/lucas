@@ -1,30 +1,41 @@
 {
-  "name": "fontendd",
+  "name": "frontend",
   "version": "0.1.0",
   "private": true,
   "engines": {
     "node": "12.15.0",
     "yarn": "^1.12.1"
   },
+  "dependencies": {
+    "@material-ui/core": "^4.10.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.55",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+  },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "lint": "eslint -c ./.eslintrc.json --ext .jsx --ext .js --color .",
     "lint:fix": "yarn lint --fix",
     "format": "prettier --write --config ./prettier.config.json '**/*(*.js|*.jsx|*.css)' --loglevel=warn",
     "format:verify": "prettier -l --config ./prettier.config.json '**/*(*.js|*.jsx|*.css|*.cssm)'",
     "flow": "flow",
-    "fix": "yarn format && yarn lint:fix && yarn flow"
+    "fix": "yarn format && yarn lint:fix && yarn flow",
+    "postinstall": "yarn build"
   },
-  "dependencies": {
-    "next": "9.5.2",
-    "node-sass": "^4.14.1",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-redux": "^7.2.1",
-    "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -39,9 +50,7 @@
     ]
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
     "babel-eslint": "^10.1.0",
-    "babel-preset-flow": "^6.23.0",
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",

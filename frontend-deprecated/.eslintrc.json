@@ -6,10 +6,10 @@
         "jest": true
     },
     "extends": [
+        "prettier",
         "plugin:react/recommended",
         "airbnb",
-        "plugin:flowtype/recommended",
-        "prettier"
+        "plugin:flowtype/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -78,7 +78,6 @@
         "react/jsx-indent-props": ["error", 4],
         "react/jsx-no-comment-textnodes": 0,
         "react/jsx-curly-brace-presence": 0,
-        "react/jsx-props-no-spreading": "off",
         "react/prop-types": 0,
         "react/no-unused-prop-types": 0,
         "react/no-danger": 0,
