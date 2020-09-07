@@ -1,31 +1,41 @@
 {
-  "name": "fontendd",
+  "name": "frontend",
   "version": "0.1.0",
   "private": true,
   "engines": {
     "node": "12.15.0",
     "yarn": "^1.12.1"
   },
+  "dependencies": {
+    "@material-ui/core": "^4.10.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.55",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+  },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "lint": "eslint -c ./.eslintrc.json --ext .jsx --ext .js --color .",
     "lint:fix": "yarn lint --fix",
     "format": "prettier --write --config ./prettier.config.json '**/*(*.js|*.jsx|*.css)' --loglevel=warn",
     "format:verify": "prettier -l --config ./prettier.config.json '**/*(*.js|*.jsx|*.css|*.cssm)'",
     "flow": "flow",
-    "fix": "yarn format && yarn lint:fix && yarn flow"
+    "fix": "yarn format && yarn lint:fix && yarn flow",
+    "postinstall": "yarn build"
   },
-  "dependencies": {
-    "eslint-import-resolver-webpack": "^0.12.2",
-    "next": "9.5.2",
-    "node-sass": "^4.14.1",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-redux": "^7.2.1",
-    "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -40,14 +50,10 @@
     ]
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
     "babel-eslint": "^10.1.0",
-    "babel-preset-flow": "^6.23.0",
-    "css-loader": "^4.2.2",
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",
-    "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-flowtype": "^5.2.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
@@ -55,9 +61,7 @@
     "eslint-plugin-react-hooks": "^4.0.8",
     "eslint-plugin-redux": "^0.1.0",
     "flow-bin": "^0.125.1",
-    "prettier": "2.0.5",
-    "sass-loader": "^10.0.2",
-    "style-loader": "^1.2.1"
+    "prettier": "2.0.5"
   },
   "proxy": "http://localhost:8000"
 }
