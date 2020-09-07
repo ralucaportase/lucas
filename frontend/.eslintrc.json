@@ -29,8 +29,12 @@
     ],
     "settings":{
         "import/resolver": {
-            "node": {
-                "paths": ["src"],
+            "alias": {
+                "map":[
+                    ["@lucas", "./lucas"],
+                    ["@pages", "./pages"],
+                    ["@public", "./public"]
+                ],
                 "extensions": [".js", ".jsx", ".css", ".scss"]
             }
         },
